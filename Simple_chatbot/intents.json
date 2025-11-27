@@ -1,0 +1,24 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hey", "Hello", "Good morning", "Good evening"],
+      "responses": ["Hello! How can I help you?", "Hi there — what can I do for you?"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "Goodbye", "See you later", "See ya"],
+      "responses": ["Goodbye!", "See you soon!"]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "Thanks a lot"],
+      "responses": ["You're welcome!", "Anytime!"]
+    },
+    {
+      "tag": "about",
+      "patterns": ["What can you do?", "Who are you?", "What is this?"],
+      "responses": ["I'm a simple chatbot built with TensorFlow and Flask.", "I can answer a few intents from a small dataset."]
+    }
+  ]
+}

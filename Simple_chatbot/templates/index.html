@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple Chatbot (No API)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="header">
+        <h2>Simple Chatbot</h2>
+        <a href="{{ url_for('clear') }}" class="clear-btn">Clear</a>
+      </div>
+      <div id="chatbox" class="chatbox">
+        {% for m in chat %}
+          {% if m.who == 'user' %}
+            <div class="message user"><div class="bubble">{{ m.text }}</div></div>
+          {% else %}
+            <div class="message bot"><div class="bubble">{{ m.text }}</div></div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <form method="post" class="input-area" action="{{ url_for('home') }}">
+        <input id="message" name="message" type="text" placeholder="Type a message..." autocomplete="off" />
+        <button type="submit" id="send">Send</button>
+      </form>
+    </div>
+
+    <script>
+      // simple auto-scroll to bottom on load
+      const chatbox = document.getElementById('chatbox');
+      if (chatbox) chatbox.scrollTop = chatbox.scrollHeight;
+      // focus input
+      const msgInput = document.getElementById('message');
+      if (msgInput) msgInput.focus();
+    </script>
+  </body>
+</html>
